@@ -27,10 +27,21 @@ class Personne {
   }
 
   function __toString(){
-    return "id : ".$this->id. " nom : ".$this->nom." prenom : ".$this->prenom;
+    return "id :".$this->id. "nom :".$this->nom. "prenom : ".$this->prenom;
   }
 }
 
-$eleve = new Personne(2,'SIMONOVIC','Izy');
+  class Contact extends Personne{
+    protected $mail;
+    function __construct($id,$nom,$prenom,$mail) {
+      parent:: __construct($id,$nom,$prenom);
+      $this->mail=$mail;
+    }
+    
+    function __toString(){
+    return parent::__toString()."  ". "mail : ".$this->mail;
+    }
+  }
+$eleve = new Contact(3,'SIMONO','Dora','dora.simon@hmail.com');
 echo $eleve;
 ?>
